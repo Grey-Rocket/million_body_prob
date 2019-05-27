@@ -93,7 +93,7 @@ public class Data_code : MonoBehaviour {
                     //forces[i] = Vector3.zero;
                     forces[i] = ReadVector(reader.ReadLine().Split(','));
 
-                    Debug.Log("Body[" + i + "].locations = " + locations[i]);
+                    // Debug.Log("Body[" + i + "].locations = " + locations[i]);
                     // Debug.Log("Body[" + i + "].velocities = " + velocities[i]);
                     // Debug.Log("Body[" + i + "].forces = " + forces[i]);
                     
