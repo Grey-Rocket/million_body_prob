@@ -161,7 +161,7 @@ public class Data_code : MonoBehaviour {
     /// <param name="i">Index of the body on which the forces will be applied</param>
     void ComputeVelocity(int i) {
         velocities[i] += DT * forces[i];
-        bodies[i].GetComponent<MeshRenderer>().material.Barva = velocities[i].magnitude;    // TODO
+        // bodies[i].GetComponent<MeshRenderer>().material.Barva = velocities[i].magnitude;    // TODO
     }
 
     /// <summary>
