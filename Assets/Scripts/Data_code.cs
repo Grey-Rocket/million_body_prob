@@ -125,7 +125,7 @@ public class Data_code : MonoBehaviour {
             ComputeLocation(i);
             // Debug.Log("Body[" + i + "]: " + s_loc + " ---> " + locations[i]);
             // TODO: Debug logs za velocity in forces
-            Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
+            // Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
         }
 	}
 
@@ -161,6 +161,7 @@ public class Data_code : MonoBehaviour {
     /// <param name="i">Index of the body on which the forces will be applied</param>
     void ComputeVelocity(int i) {
         velocities[i] += DT * forces[i];
+        bodies[i].GetComponent<MeshRenderer>().material.Barva = velocities[i].magnitude;    // TODO
     }
 
     /// <summary>
