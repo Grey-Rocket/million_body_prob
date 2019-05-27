@@ -87,13 +87,13 @@ public class Data_code : MonoBehaviour {
 
                 // read data for each body
                 for (int i = 0; i < n; i++) {
-                    locations[i] = ReadVector(reader.ReadLine().Split(','));
-                    velocities[i] = ReadVector(reader.ReadLine().Split(','));
+                    locations[i] = ReadVector(reader.ReadLine().Split('_'));
+                    velocities[i] = ReadVector(reader.ReadLine().Split('_'));
                     //reader.ReadLine();
                     //forces[i] = Vector3.zero;
-                    forces[i] = ReadVector(reader.ReadLine().Split(','));
+                    forces[i] = ReadVector(reader.ReadLine().Split('_'));
 
-                    // Debug.Log("Body[" + i + "].locations = " + locations[i]);
+                    Debug.Log("Body[" + i + "].locations = " + locations[i]);
                     // Debug.Log("Body[" + i + "].velocities = " + velocities[i]);
                     // Debug.Log("Body[" + i + "].forces = " + forces[i]);
                     
@@ -182,9 +182,9 @@ public class Data_code : MonoBehaviour {
     /// <returns>Vector3 read from input</returns>
     Vector3 ReadVector(string[] data) {
         return new Vector3(
-            float.Parse(data[0])/100000.0f,
-            float.Parse(data[1])/100000.0f,
-            float.Parse(data[2])/100000.0f
+            float.Parse(data[0].Replace('.', ',')),
+            float.Parse(data[1].Replace('.', ',')),
+            float.Parse(data[2].Replace('.', ','))
         );
     }
 }

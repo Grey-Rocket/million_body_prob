@@ -20,11 +20,11 @@ fprintf(fid,"%d\n",n);
 %return;
 
 for i=1:n
-  fprintf(fid, "%d,", a(i,:));
+  fprintf(fid, "%d_", a(i,:));
   fprintf(fid,"\n");
-  fprintf(fid, "%d,", b(i,:));
+  fprintf(fid, "%d_", b(i,:));
   fprintf(fid,"\n");
-  fprintf(fid, "%d,", c(i,:));
+  fprintf(fid, "%d_", c(i,:));
   fprintf(fid,"\n");
   if (i == 1)
     fprintf(fid, "%d", 1000);
