@@ -88,7 +88,7 @@ public class Data_code : MonoBehaviour {
                 // read data for each body
                 for (int i = 0; i < n; i++) {
                     locations[i] = ReadVector(reader.ReadLine().Split('_'));
-                    velocities[i] = ReadVector(reader.ReadLine().Split('_'));
+                    velocities[i] = ReadVector(reader.ReadLine().Split('_'))*0.1f;
                     //reader.ReadLine();
                     //forces[i] = Vector3.zero;
                     forces[i] = ReadVector(reader.ReadLine().Split('_'));
@@ -181,18 +181,19 @@ public class Data_code : MonoBehaviour {
     /// <param name="data">array, containing the data, from which the Vector will be created</param>
     /// <returns>Vector3 read from input</returns>
     Vector3 ReadVector(string[] data) {
-        /*
-         * // better solution
+        
+        // better solution
         return new Vector3(
             float.Parse(data[0].Replace('.', ',')),
             float.Parse(data[1].Replace('.', ',')),
             float.Parse(data[2].Replace('.', ','))
         );
-        */
+        /*
         return new Vector3(
             float.Parse(data[0])/100000,
             float.Parse(data[1])/100000,
             float.Parse(data[2])/100000
         );
+        */
     }
 }
