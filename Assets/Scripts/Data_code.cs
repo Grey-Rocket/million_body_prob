@@ -181,10 +181,18 @@ public class Data_code : MonoBehaviour {
     /// <param name="data">array, containing the data, from which the Vector will be created</param>
     /// <returns>Vector3 read from input</returns>
     Vector3 ReadVector(string[] data) {
+        /*
+         * // better solution
         return new Vector3(
             float.Parse(data[0].Replace('.', ',')),
             float.Parse(data[1].Replace('.', ',')),
             float.Parse(data[2].Replace('.', ','))
+        );
+        */
+        return new Vector3(
+            float.Parse(data[0])/100000,
+            float.Parse(data[1])/100000,
+            float.Parse(data[2])/100000
         );
     }
 }
