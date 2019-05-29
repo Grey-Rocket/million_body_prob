@@ -16,7 +16,7 @@ function [x,v,f]=generator(min,max,n)
     a = a + rand()*min/2;
     [d, dr, ddr] = kroznica(a,t(i)+rand()*t(i)*a);
     x(i,1:3) = d;
-    v(i,1:3) = dr * sqrt(1000/norm(d));
+    v(i,1:3) = (dr/norm(dr)) * sqrt(1000/norm(d));
     f(i,1:3) = ddr;
     
   end
