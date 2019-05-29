@@ -7,6 +7,7 @@ public class Data_code : MonoBehaviour {
     public float DT = 0.0001f;     // default step size
     public const int MASS = 1;          // default mass of objects
     public const int G = 1;             // default gravitational pull
+    public float speed = 1;
 
     public int trail_time = 200;
 
@@ -88,7 +89,7 @@ public class Data_code : MonoBehaviour {
                 // read data for each body
                 for (int i = 0; i < n; i++) {
                     locations[i] = ReadVector(reader.ReadLine().Split('_'));
-                    velocities[i] = ReadVector(reader.ReadLine().Split('_'))*0.1f;
+                    velocities[i] = ReadVector(reader.ReadLine().Split('_'))*speed;
                     //reader.ReadLine();
                     //forces[i] = Vector3.zero;
                     forces[i] = ReadVector(reader.ReadLine().Split('_'));
