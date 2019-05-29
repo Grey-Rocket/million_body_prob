@@ -9,6 +9,8 @@ public class Data_code : MonoBehaviour {
     public const int G = 1;             // default gravitational pull
     public float speed = 1;
 
+    public bool mode = true;
+
     public int trail_time = 200;
 
     public string path = "";
@@ -118,15 +120,31 @@ public class Data_code : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     
-		for(int i = 0; i < n; i++) {
-            Vector3 s_loc = locations[i];
+        if(mode) {
+            // every body acting on another body
+            for (int i = 0; i < n; i++) {
+                Vector3 s_loc = locations[i];
 
-            ComputeForce(i);
-            ComputeVelocity(i);
-            ComputeLocation(i);
-            // Debug.Log("Body[" + i + "]: " + s_loc + " ---> " + locations[i]);
-            // TODO: Debug logs za velocity in forces
-            // Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
+                ComputeForce(i);
+                ComputeVelocity(i);
+                ComputeLocation(i);
+                // Debug.Log("Body[" + i + "]: " + s_loc + " ---> " + locations[i]);
+                // TODO: Debug logs za velocity in forces
+                // Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
+            }
+        } else {
+            // only the center body acting on other bodies
+            for(int j = 1; j < n; j++)
+                forces[j] -= masses[j] * (locations[j] - locations[0]) / Mathf.Pow(((locations[j] - locations[0]).magnitude), 3);
+
+            for (int i = 0; i < n; i++) {
+                Vector3 s_loc = locations[i];
+
+                ComputeVelocity(i);
+                ComputeLocation(i);
+                // Debug.Log("Body[" + i + "]: " + s_loc + " ---> " + locations[i]);
+                // Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
+            }
         }
 	}
 
