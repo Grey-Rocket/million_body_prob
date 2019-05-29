@@ -88,7 +88,7 @@ public class Data_code : MonoBehaviour {
                 // read data for each body
                 for (int i = 0; i < n; i++) {
                     locations[i] = ReadVector(reader.ReadLine().Split('_'));
-                    velocities[i] = ReadVector(reader.ReadLine().Split('_'))*0.1f;
+                    velocities[i] = ReadVector(reader.ReadLine().Split('_'))*2;
                     //reader.ReadLine();
                     //forces[i] = Vector3.zero;
                     forces[i] = ReadVector(reader.ReadLine().Split('_'));
@@ -125,7 +125,8 @@ public class Data_code : MonoBehaviour {
             ComputeLocation(i);
             // Debug.Log("Body[" + i + "]: " + s_loc + " ---> " + locations[i]);
             // TODO: Debug logs za velocity in forces
-            // Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
+
+            Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
         }
 	}
 

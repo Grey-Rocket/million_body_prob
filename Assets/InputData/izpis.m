@@ -27,7 +27,7 @@ for i=1:n
   fprintf(fid, "%d_", c(i,:));
   fprintf(fid,"\n");
   if (i == 1)
-    fprintf(fid, "%d", 1000);
+    fprintf(fid, "%d", 100);
   else
     fprintf(fid, "%d", 1);
   end
