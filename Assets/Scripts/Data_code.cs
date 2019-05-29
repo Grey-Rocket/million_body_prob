@@ -162,6 +162,9 @@ public class Data_code : MonoBehaviour {
     void ComputeVelocity(int i) {
         velocities[i] += DT * forces[i];
         // bodies[i].GetComponent<MeshRenderer>().material.Barva = velocities[i].magnitude;    // TODO
+        bodies[i].GetComponent<Renderer>().material.SetFloat("Vector1_D2FF331E",velocities[i].x);
+        bodies[i].GetComponent<Renderer>().material.SetFloat("Vector1_ED68406D", velocities[i].y);
+        bodies[i].GetComponent<Renderer>().material.SetFloat("Vector1_1F8FEA63", velocities[i].z);
     }
 
     /// <summary>
