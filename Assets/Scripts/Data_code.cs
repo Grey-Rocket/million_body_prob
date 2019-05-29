@@ -8,8 +8,10 @@ public class Data_code : MonoBehaviour {
     public const int MASS = 1;          // default mass of objects
     public const int G = 1;             // default gravitational pull
     public float speed = 1;
+    public float error_margin = 0.01f;
 
     public bool mode = true;
+    public int center_mass = 1000;
 
     public int trail_time = 200;
 
@@ -20,6 +22,8 @@ public class Data_code : MonoBehaviour {
     Vector3[] locations;
     Vector3[] velocities;
     Vector3[] forces;
+
+    Renderer[] rend;
 
     public GameObject sample = null;
     GameObject[] bodies;
@@ -87,6 +91,7 @@ public class Data_code : MonoBehaviour {
                 velocities = new Vector3[n];
                 forces = new Vector3[n];
                 masses = new int[n];
+                rend = new Renderer[n];
 
                 // read data for each body
                 for (int i = 0; i < n; i++) {
@@ -110,6 +115,7 @@ public class Data_code : MonoBehaviour {
                 for(int i = 0; i < n; i++) {
                     bodies[i] = (GameObject)Instantiate(sample);
                     bodies[i].transform.position = locations[i];
+                    rend[i] = bodies[i].GetComponent<Renderer>();
                 }
 
                 Debug.Log("[SYS]: Bodies generated");
@@ -133,9 +139,10 @@ public class Data_code : MonoBehaviour {
                 // Debug.DrawLine(s_loc, locations[i], Color.white, trail_time);
             }
         } else {
+            masses[0] = center_mass;
             // only the center body acting on other bodies
             for(int j = 1; j < n; j++)
-                forces[j] -= masses[j] * (locations[j] - locations[0]) / Mathf.Pow(((locations[j] - locations[0]).magnitude), 3);
+                forces[j] = -masses[0] * (locations[j] - locations[0]) / Mathf.Pow(((locations[j] - locations[0]).magnitude), 3);
 
             for (int i = 0; i < n; i++) {
                 Vector3 s_loc = locations[i];
@@ -159,9 +166,10 @@ public class Data_code : MonoBehaviour {
     void ComputeForce(int i) {
         Vector3 sum = Vector3.zero;
         for(int j = 0; j < n; j++) {
+            Vector3 diff = (locations[j] - locations[i]);
             
-            if(i != j) {
-                Vector3 temp = masses[j] * (locations[j] - locations[i]) / Mathf.Pow(((locations[j] - locations[i]).magnitude), 3);
+            if (i != j && diff.magnitude > error_margin) {
+                Vector3 temp = masses[j] * diff / Mathf.Pow(((locations[j] - locations[i]).magnitude), 3);
 
                 // if (i != 0) forces[i] += temp;
                 // if (j != 0) forces[j] -= temp;
@@ -181,9 +189,9 @@ public class Data_code : MonoBehaviour {
     void ComputeVelocity(int i) {
         velocities[i] += DT * forces[i];
         // bodies[i].GetComponent<MeshRenderer>().material.Barva = velocities[i].magnitude;    // TODO
-        bodies[i].GetComponent<Renderer>().material.SetFloat("Vector1_D2FF331E",velocities[i].x);
-        bodies[i].GetComponent<Renderer>().material.SetFloat("Vector1_ED68406D", velocities[i].y);
-        bodies[i].GetComponent<Renderer>().material.SetFloat("Vector1_1F8FEA63", velocities[i].z);
+        rend[i].material.SetFloat("Vector1_D2FF331E", velocities[i].x);
+        rend[i].material.SetFloat("Vector1_ED68406D", velocities[i].y);
+        rend[i].material.SetFloat("Vector1_1F8FEA63", velocities[i].z);
     }
 
     /// <summary>

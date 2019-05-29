@@ -369,17 +369,27 @@ PrefabInstance:
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
       propertyPath: DT
-      value: 0.001
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
       propertyPath: mode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
       propertyPath: speed
-      value: 0.5
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
+        type: 3}
+      propertyPath: center_mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
+        type: 3}
+      propertyPath: error_margin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c3e23e61f1f3684596470b36a8b2c66, type: 3}
