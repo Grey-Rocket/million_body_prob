@@ -34,10 +34,10 @@ else
   
   a(1:n,1) -= (max+min/2);
   a(1:n,2) -= max/2-1;
-  b(1:n,1) += (max/2+min/2+1);
+  b(1:n,1) += sqrt(1000/(2*max+min+1))*10;
   a((n+1):end, 1) += (max+min/2);
   a((n+1):end, 2) += max/2+1;
-  b((n+1):end, 1) -= (max/2+min/2+1);
+  b((n+1):end, 1) -= sqrt(1000/(2*max+2*min+1))*10;
   fprintf(fid,"%d\n",2*n);
 end
 

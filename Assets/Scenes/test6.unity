@@ -385,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
       propertyPath: path
-      value: Assets/InputData/Primer_3_2G-2000_teles.txt
+      value: Assets/InputData/test1.txt
       objectReference: {fileID: 0}
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
       propertyPath: mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
