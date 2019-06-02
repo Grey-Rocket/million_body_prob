@@ -216,9 +216,9 @@ public class Data_code : MonoBehaviour {
             );
         } else {
             return new Vector3(
-                float.Parse(data[0]) / 100000,
-                float.Parse(data[1]) / 100000,
-                float.Parse(data[2]) / 100000
+                float.Parse(data[0]),
+                float.Parse(data[1]),
+                float.Parse(data[2])
             );
         }
     }
