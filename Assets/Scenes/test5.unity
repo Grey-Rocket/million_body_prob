@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}
       propertyPath: mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6909383319853734482, guid: 0c3e23e61f1f3684596470b36a8b2c66,
         type: 3}

@@ -14,6 +14,7 @@ public class Data_code : MonoBehaviour {
     public int center_mass = 1000;
 
     public int trail_time = 200;
+    private bool comma = float.Parse("4.2") == 42;
 
     public string path = "";
     public int copy_num = -1;
@@ -211,19 +212,18 @@ public class Data_code : MonoBehaviour {
     /// <param name="data">array, containing the data, from which the Vector will be created</param>
     /// <returns>Vector3 read from input</returns>
     Vector3 ReadVector(string[] data) {
-        
-        // better solution
-        return new Vector3(
-            float.Parse(data[0].Replace('.', ',')),
-            float.Parse(data[1].Replace('.', ',')),
-            float.Parse(data[2].Replace('.', ','))
-        );
-        /*
-        return new Vector3(
-            float.Parse(data[0])/100000,
-            float.Parse(data[1])/100000,
-            float.Parse(data[2])/100000
-        );
-        */
+        if (comma) {
+            return new Vector3(
+                float.Parse(data[0].Replace('.', ',')),
+                float.Parse(data[1].Replace('.', ',')),
+                float.Parse(data[2].Replace('.', ','))
+            );
+        } else {
+            return new Vector3(
+                float.Parse(data[0]) / 100000,
+                float.Parse(data[1]) / 100000,
+                float.Parse(data[2]) / 100000
+            );
+        }
     }
 }
